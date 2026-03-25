@@ -1,5 +1,5 @@
 ## Danielle Kruger - Assignment 1 (Python)
-## Practical 1
+## Practical 1.1
 print("Enter you name: ")
 name = input()
 print("Enter your surname: ")
