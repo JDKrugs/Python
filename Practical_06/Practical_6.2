@@ -1,1 +1,45 @@
+# Danielle Kruger
+# Practical 6 - 6.2
+# Music Concert - Read and display artists from file
 
+def main():
+    # File name
+    filename = "concert_artist.txt"
+    
+    try:
+        # Open and read the file
+        with open(filename, "r") as file:
+            artists = file.readlines()
+        
+        # Check if file is empty
+        if not artists:
+            print("The file is empty. No artists found.")
+            return
+        
+        # Display artists
+        print("South African Musicians Performing at the Concert:")
+        print("-" * 50)
+        
+        for i, artist in enumerate(artists, 1):
+            # Remove newline character and display
+            artist_name = artist.strip()
+            if artist_name:
+                print(f"{i}. {artist_name}")
+        
+        # Count artists
+        artist_count = len([artist for artist in artists if artist.strip()])
+        
+        print("-" * 50)
+        print(f"Total number of artists performing: {artist_count}")
+    
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+        print("Please ensure the file exists in the current directory.")
+    except IOError as e:
+        print(f"Error: Unable to read the file. {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Call main function
+if __name__ == "__main__":
+    main()
