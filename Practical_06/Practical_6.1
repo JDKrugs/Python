@@ -1,1 +1,40 @@
+# Danielle Kruger
+# Practical 6 - 6.1
+# Food Festival - Write dish names to file
 
+def main():
+    # File name
+    filename = "food_festival_menu.txt"
+    
+    try:
+        # Open file in write mode
+        with open(filename, "w") as file:
+            print("Welcome to the South African Food Festival Menu Entry System")
+            print("Enter dish names (type 'done' to finish):\n")
+            
+            while True:
+                # Get dish name from user
+                dish = input("Enter a traditional South African dish: ").strip()
+                
+                # Check if user is done
+                if dish.lower() == "done":
+                    break
+                
+                # Validate input is not empty
+                if dish:
+                    # Write dish to file
+                    file.write(dish + "\n")
+                    print(f"'{dish}' added to the menu.\n")
+                else:
+                    print("Please enter a valid dish name.\n")
+        
+        print(f"Menu successfully saved to {filename}")
+    
+    except IOError as e:
+        print(f"Error: Unable to create or write to the file. {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Call main function
+if __name__ == "__main__":
+    main()
