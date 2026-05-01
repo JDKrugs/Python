@@ -1,1 +1,23 @@
+## Danielle Kruger
+## Assignment 2V - 2.2
+# Get length and width from user
+length = float(input("Enter the length (cm): "))
+width = float(input("Enter the width (cm): "))
 
+# Calculate area
+area = length * width
+
+# Calculate perimeter
+perimeter = 2 * (length + width)
+
+# Calculate diagonal using Pythagorean theorem
+diagonal = (length ** 2 + width ** 2) ** 0.5
+
+# Display results with specified formatting
+print(f"Area of the rectangle is {area:.2f} square cm")
+print(f"Perimeter of the rectangle is {perimeter:.1f} cm")
+print(f"Diagonal of the rectangle is {diagonal:.3f} cm")
+
+# Display rectangle dimensions
+print("**Rectangle dimensions:**")
+print(f"length = {length} cm width = {width} cm")
