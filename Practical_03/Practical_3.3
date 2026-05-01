@@ -1,1 +1,24 @@
+## Danielle Kruger
+## Practical 3 - 3.3
+side1 = int(input("Enter the length of stick #1: "))
+side2 = int(input("Enter the length of stick #2: "))
+side3 = int(input("Enter the length of stick #3: "))
+
+if (
+    (side1 + side2 > side3) and
+    (side1 + side3 > side2) and
+    (side2 + side3 > side1)
+):
+
+    print("\nTriangle possible")
+
+    if side1 == side2 == side3:
+        print("Equilateral triangle possible")
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        print("Isosceles triangle possible")
+    else:
+        print("Scalene triangle possible")
+
+else:
+    print("\nNo triangle possible")
 
