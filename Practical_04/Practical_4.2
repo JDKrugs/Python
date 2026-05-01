@@ -1,1 +1,14 @@
+# Danielle Kruger
+# Practical 4 - 4.2
+# Calculate projected salary with 5% annual increase over 5 years
 
+# Get current salary from user
+salary = float(input("Enter the current salary: R"))
+
+# Display year 0 salary
+print(f"Year 0: R{salary:.2f}")
+
+# Loop for 5 years and apply 5% increase each year
+for year in range(1, 6):
+    salary = salary * 1.05
+    print(f"Year {year}: R{salary:.2f}")
