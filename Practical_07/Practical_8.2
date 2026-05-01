@@ -1,1 +1,28 @@
+# Danielle Kruger
+# Practical 8 - 8.2
+# Duplicate Name Detection
 
+# Create initial list
+names = ["John", "Anna", "John", "Mike", "Anna", "Paul"]
+
+# Loop until user presses enter with no input
+while True:
+    # Get name from user
+    name_to_check = input("Enter a name to check: ").strip()
+    
+    # Check if user pressed enter without input
+    if not name_to_check:
+        print("Thank you for using the program!")
+        break
+    
+    # Count occurrences using a for loop
+    count = 0
+    for name in names:
+        if name.lower() == name_to_check.lower():
+            count += 1
+    
+    # Display result
+    if count >= 2:
+        print(f"The name '{name_to_check}' appears {count} times in the list.")
+    else:
+        print(f"{name_to_check} does not appear in the list 2 or more times.")
