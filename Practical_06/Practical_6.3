@@ -1,1 +1,90 @@
+# Danielle Kruger
+# Practical 6 - 6.3
+# Weather Service - Rainfall analysis and summary
 
+def main():
+    # File names
+    input_filename = "rainfall_data.txt"
+    output_filename = "rainfall_summary.txt"
+    
+    try:
+        # Open and read the rainfall data file
+        with open(input_filename, "r") as file:
+            lines = file.readlines()
+        
+        # Validate file has content
+        if not lines:
+            print(f"Error: The file '{input_filename}' is empty.")
+            return
+        
+        # Parse city and rainfall data
+        cities = []
+        rainfalls = []
+        
+        i = 0
+        while i < len(lines):
+            # Get city name
+            city = lines[i].strip()
+            
+            # Check if next line exists and contains rainfall data
+            if i + 1 < len(lines):
+                try:
+                    rainfall = float(lines[i + 1].strip())
+                    cities.append(city)
+                    rainfalls.append(rainfall)
+                    i += 2
+                except ValueError:
+                    print(f"Error: Invalid rainfall data format for {city}.")
+                    i += 1
+            else:
+                print(f"Error: Missing rainfall data for {city}.")
+                break
+        
+        # Validate we have data
+        if not rainfalls:
+            print("Error: No valid rainfall data found.")
+            return
+        
+        # Calculate average rainfall
+        average_rainfall = sum(rainfalls) / len(rainfalls)
+        
+        # Find city with highest rainfall
+        max_rainfall = max(rainfalls)
+        max_index = rainfalls.index(max_rainfall)
+        city_with_highest_rainfall = cities[max_index]
+        
+        # Display results to console
+        print("Rainfall Analysis Summary")
+        print("-" * 50)
+        print(f"Average Rainfall across all cities: {average_rainfall:.2f} mm")
+        print(f"City with highest rainfall: {city_with_highest_rainfall} ({max_rainfall:.2f} mm)")
+        
+        # Write summary to file
+        with open(output_filename, "w") as file:
+            file.write("SOUTH AFRICAN WEATHER SERVICE - RAINFALL SUMMARY\n")
+            file.write("=" * 50 + "\n\n")
+            
+            file.write("City-by-City Rainfall Data:\n")
+            file.write("-" * 50 + "\n")
+            for city, rainfall in zip(cities, rainfalls):
+                file.write(f"{city}: {rainfall:.2f} mm\n")
+            
+            file.write("\n" + "-" * 50 + "\n")
+            file.write(f"Average Rainfall: {average_rainfall:.2f} mm\n")
+            file.write(f"City with Highest Rainfall: {city_with_highest_rainfall} ({max_rainfall:.2f} mm)\n")
+        
+        print(f"\nSummary successfully written to {output_filename}")
+    
+    except FileNotFoundError:
+        print(f"Error: The file '{input_filename}' was not found.")
+        print("Please ensure the file exists in the current directory.")
+    except IOError as e:
+        print(f"Error: Unable to read or write files. {e}")
+    except ValueError as e:
+        print(f"Error: Data format issue - {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Call main function
+if __name__ == "__main__":
+    main()
