@@ -1,1 +1,53 @@
+# Danielle Kruger
+# Practical 5 - 5.2
+# Test Score Evaluation
 
+def calcAverage(scores):
+    # Calculate and return the average of the test scores
+    average = sum(scores) / len(scores)
+    return average
+
+def determineGrade(average):
+    # Determine and return the letter grade based on the average
+    if average >= 90:
+        return "A"
+    elif average >= 80:
+        return "B"
+    elif average >= 70:
+        return "C"
+    elif average >= 60:
+        return "D"
+    else:
+        return "F"
+
+def main():
+    # Get five test scores from the user
+    scores = []
+    
+    print("Enter five test scores:")
+    for i in range(5):
+        while True:
+            try:
+                score = float(input(f"Enter test score {i + 1}: "))
+                # Validate score is between 0 and 100
+                if 0 <= score <= 100:
+                    scores.append(score)
+                    break
+                else:
+                    print("Please enter a score between 0 and 100.")
+            except ValueError:
+                print("Please enter a valid number.")
+    
+    # Calculate the average
+    average = calcAverage(scores)
+    
+    # Determine the grade
+    grade = determineGrade(average)
+    
+    # Display results
+    print(f"\nAverage Test Score: {average:.2f}")
+    print(f"Letter Grade: {grade}")
+
+# Call the main function
+if __name__ == "__main__":
+    main()
