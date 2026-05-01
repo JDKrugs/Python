@@ -1,1 +1,36 @@
+# Danielle Kruger
+# Practical 9 - 9.1
+# Participation Marks Database
 
+import sqlite3
+
+def main():
+    # Connect to the database
+    connection = sqlite3.connect("Students.db")
+    cursor = connection.cursor()
+    
+    # Drop table if it exists
+    cursor.execute("DROP TABLE IF EXISTS cmpg111")
+    
+    # Create table
+    cursor.execute("CREATE TABLE cmpg111 (StudentNumber TEXT PRIMARY KEY NOT NULL, StudentName TEXT, ParticipationMark INTEGER)")
+    print("Table Created!")
+    
+    # Insert student data
+    cursor.execute("INSERT INTO cmpg111 VALUES ('31592834', 'John Doe', 76)")
+    cursor.execute("INSERT INTO cmpg111 VALUES ('42748191', 'Jane Austen', 38)")
+    cursor.execute("INSERT INTO cmpg111 VALUES ('32774344', 'Alex Carter', 85)")
+    cursor.execute("INSERT INTO cmpg111 VALUES ('45829162', 'Avery Jordan', 92)")
+    cursor.execute("INSERT INTO cmpg111 VALUES ('33693821', 'John Smith', 28)")
+    
+    # Commit changes
+    connection.commit()
+    
+    print("Student information entered!")
+    
+    # Close connection
+    connection.close()
+
+# Call main function
+if __name__ == "__main__":
+    main()
