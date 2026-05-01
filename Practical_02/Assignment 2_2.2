@@ -1,1 +1,14 @@
+## Danielle Kruger
+## Assignment 2 - 2.2
+# Get input from user
+weight = float(input("Enter your weight in kilograms (kg): "))
+height_cm = float(input("Enter your height in centimetres (cm) : "))
 
+# Convert height from centimetres to metres
+height_m = height_cm / 100
+
+# Calculate BMI
+bmi = weight / (height_m ** 2)
+
+# Display result
+print(f"BMI: {bmi}")
