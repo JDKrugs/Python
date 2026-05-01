@@ -1,1 +1,64 @@
+# Danielle Kruger
+# Practical 10 - 10.1
+# Participation Marks Database Queries
 
+import sqlite3
+
+def main():
+    # Connect to the database
+    connection = sqlite3.connect("University.db")
+    cursor = connection.cursor()
+    
+    # Q1: Show all students in CMPG111
+    Q1 = cursor.execute("SELECT * FROM CMPG111")
+    print("Q1 - All the Students in CMPG111:")
+    for row in Q1.fetchall():
+        print(f"{row[0]:>4}, {row[1]:<15}, {row[2]:>4}, {row[3]:>4}, {row[4]:>4}")
+    
+    print()
+    
+    # Q2: Show student name for student 1003
+    Q2 = cursor.execute("SELECT StudentName FROM CMPG111 WHERE StudentNumber = 1003")
+    print("Q2 - Show student 1003:")
+    result = Q2.fetchone()
+    print(result[0])
+    
+    print()
+    
+    # Q3: Show students NOT allowed to write exam (Participation Mark < 40)
+    Q3 = cursor.execute("SELECT StudentNumber FROM CMPG111 WHERE ParticipationMark < 40")
+    print("Q3 - Students that are NOT allowed to write the exam:")
+    for row in Q3.fetchall():
+        print(row[0])
+    
+    print()
+    
+    # Q4: Show students passed but no distinction (Final Mark > 49 AND < 75)
+    Q4 = cursor.execute("SELECT * FROM CMPG111 WHERE FinalMark > 49 AND FinalMark < 75")
+    print("Q4 - Students that passed without distinction:")
+    for row in Q4.fetchall():
+        print(f"{row[0]:>4}, {row[1]:<15}, {row[2]:>4}, {row[3]:>4}, {row[4]:>4}")
+    
+    print()
+    
+    # Q5: Show students failed exam (Exam Mark < 40)
+    Q5 = cursor.execute("SELECT * FROM CMPG111 WHERE ExamMark < 40")
+    print("Q5 - Students that failed the Exam:")
+    for row in Q5.fetchall():
+        print(f"{row[0]:>4}, {row[1]:<15}, {row[2]:>4}, {row[3]:>4}, {row[4]:>4}")
+    
+    print()
+    
+    # Q6: Show distinctions sorted (Final Mark >= 75)
+    Q6 = cursor.execute("SELECT StudentNumber, StudentName, FinalMark FROM CMPG111 WHERE FinalMark >= 75 ORDER BY FinalMark DESC")
+    print("Q6 - Students that received distinctions:")
+    for row in Q6.fetchall():
+        print(f"{row[0]:>4}, {row[1]:<15}, {row[2]:>4}")
+    
+    # Commit and close connection
+    connection.commit()
+    connection.close()
+
+# Call main function
+if __name__ == "__main__":
+    main()
