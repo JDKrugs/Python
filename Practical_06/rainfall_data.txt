@@ -1,0 +1,20 @@
+Pretoria
+90
+Durban
+120
+Cape Town
+85
+Bloemfontein
+75
+Polokwane
+60
+Johannesburg
+95
+Port Elizabeth
+80
+East London
+70
+Kimberley
+65
+Nelspruit
+110
