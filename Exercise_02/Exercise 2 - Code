@@ -1,0 +1,129 @@
+# Danielle Kruger
+
+# Question 1
+name = "Alice"
+print("Initial name:\n" + name)
+name = input("Enter a new name:\n")
+print("Updated name:\n" + name)
+
+# Question 2
+my_string = "Hello"
+my_int = 10
+my_float = 3.5
+my_bool = True
+print("\nString value:\n" + my_string)
+print("Integer value:\n" + str(my_int))
+print("Float value:\n" + str(my_float))
+print("Boolean value:\n" + str(my_bool))
+
+# Question 3
+user_input = input("\nEnter a number:\n")
+# convert to integer
+try:
+    as_int = int(user_input)
+except:
+    as_int = 0
+# convert to float
+try:
+    as_float = float(user_input)
+except:
+    as_float = 0.0
+print("As integer:\n" + str(as_int))
+print("As float:\n" + str(as_float))
+
+# Question 4
+print("\nEnter two numbers for calculations:")
+# get first number
+while True:
+    first = input("First number:\n")
+    try:
+        a = float(first)
+        break
+    except:
+        print("Please enter a valid number.")
+# get second number
+while True:
+    second = input("Second number:\n")
+    try:
+        b = float(second)
+        break
+    except:
+        print("Please enter a valid number.")
+
+add = a + b
+sub = a - b
+mul = a * b
+div = "Error (division by zero)" if b == 0 else a / b
+# integer division and modulus using integers converted simply
+int_a = int(a)
+int_b = int(b)
+int_div = "Error (division by zero)" if int_b == 0 else int_a // int_b
+mod = "Error (division by zero)" if int_b == 0 else int_a % int_b
+exp = a ** b
+
+print("\nAddition:\n" + str(add))
+print("Subtraction:\n" + str(sub))
+print("Multiplication:\n" + str(mul))
+print("Division:\n" + str(div))
+print("Integer division:\n" + str(int_div))
+print("Modulus:\n" + str(mod))
+print("Exponentiation:\n" + str(exp))
+
+# Question 5
+int_val = 7
+float_val = 2.5
+print("\nInteger:\n" + str(int_val))
+print("Float:\n" + str(float_val))
+print("Addition (mixed):\n" + str(int_val + float_val))
+print("Subtraction (mixed):\n" + str(int_val - float_val))
+print("Multiplication (mixed):\n" + str(int_val * float_val))
+print("Float converted to integer:\n" + str(int(float_val)))
+
+# Question 6
+price1 = 5.00
+price2 = 3.50
+price3 = 4.25
+price4 = 2.75
+price5 = 6.00
+total_cost = price1 + price2 + price3 + price4 + price5
+print("\nTotal cost of five items:\n" + str(total_cost))
+
+# Question 7
+first_name = input("\nEnter your first name:\n")
+last_name = input("Enter your last name:\n")
+full_name = first_name + " " + last_name
+print("Full name:\n" + full_name)
+print("Welcome, " + full_name + "!")
+
+# Question 8
+name_for_print = input("\nEnter your name:\n")
+age_for_print = input("Enter your age:\n")
+hobby_for_print = input("Enter your favourite hobby:\n")
+print("Your details:\n" + name_for_print + ", " + age_for_print + ", " + hobby_for_print)
+
+# Question 9
+try:
+    price = float(input("\nEnter the product price:\n"))
+except:
+    price = 0.0
+try:
+    discount_percent = float(input("Enter the discount percentage (e.g., 20):\n"))
+except:
+    discount_percent = 0.0
+discount_amount = price * (discount_percent / 100)
+final_price = price - discount_amount
+print("Original price:\n" + "{:.2f}".format(price))
+print("Discount amount:\n" + "{:.2f}".format(discount_amount))
+print("Final price:\n" + "{:.2f}".format(final_price))
+
+# Question 10
+INTEREST_RATE = 0.05
+try:
+    balance = float(input("\nEnter your current bank balance:\n"))
+except:
+    balance = 0.0
+interest_earned = balance * INTEREST_RATE
+final_balance = balance + interest_earned
+print("Balance:\n" + "{:.2f}".format(balance))
+print("Interest earned:\n" + "{:.2f}".format(interest_earned))
+print("Final balance:\n" + "{:.2f}".format(final_balance))
