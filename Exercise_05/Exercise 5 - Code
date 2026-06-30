@@ -1,0 +1,152 @@
+# Danielle Kruger
+
+# Question 1
+for i in range(1, 11):
+    print(i)
+
+# Question 2
+for i in range(10, 0, -1):
+    print(i)
+print("Liftoff!")
+
+# Question 3
+num_input = input("\nHow many modules?\n")
+try:
+    count = int(num_input)
+except:
+    count = 0
+total = 0.0
+for i in range(count):
+    mark_input = input("Enter mark for module " + str(i+1) + ":\n")
+    try:
+        mark = float(mark_input)
+    except:
+        mark = 0.0
+    total += mark
+average = 0.0 if count == 0 else total / count
+print("Average:\n" + "{:.2f}".format(average))
+if average >= 60:
+    print("You can apply for honours")
+else:
+    print("You cannot apply for honours")
+
+# Question 4
+n_input = input("\nEnter a number to find its factorial:\n")
+try:
+    n = int(n_input)
+except:
+    n = 0
+fact = 1
+if n < 0:
+    fact = 0
+else:
+    for k in range(1, n + 1):
+        fact *= k
+print("Factorial:\n" + str(fact))
+
+# Question 5
+fib_input = input("\nEnter how many Fibonacci terms to generate:\n")
+try:
+    terms = int(fib_input)
+except:
+    terms = 0
+a, b = 0, 1
+seq = []
+for _ in range(terms):
+    seq.append(str(a))
+    a, b = b, a + b
+print("Fibonacci:\n" + " ".join(seq))
+
+# Question 6
+correct = "P@55w0rd123!"
+while True:
+    pw = input("\nEnter password:\n")
+    if pw == correct:
+        print("Access GRANTED")
+        break
+    else:
+        print("Access DENIED! Please try again")
+
+# Question 7
+while True:
+    val_input = input("\nEnter a positive number:\n")
+    try:
+        val = float(val_input)
+    except:
+        val = 0.0
+    if val > 0:
+        print("Thank you. You entered:\n" + str(val))
+        break
+    else:
+        print("That is not a positive number. Try again.")
+
+# Question 8
+height = 0
+days = 0
+peak = 5000
+while height < peak:
+    climb_input = input("\nEnter climb for day " + str(days+1) + " (300-700):\n")
+    try:
+        climbed = int(climb_input)
+    except:
+        climbed = 0
+    if climbed < 300:
+        climbed = 300
+    if climbed > 700:
+        climbed = 700
+    days += 1
+    height += climbed
+    if height >= peak:
+        print("Reached the top in " + str(days) + " days")
+        break
+    height -= 150
+    remaining = peak - height
+    if remaining < 0:
+        remaining = 0
+    print("After night slide you still need:\n" + str(remaining) + " m")
+
+# Question 9
+import random
+target = random.randint(1, 100)
+tries = 0
+while True:
+    guess_input = input("\nGuess the number (1-100):\n")
+    try:
+        guess = int(guess_input)
+    except:
+        guess = 0
+    tries += 1
+    if guess == target:
+        print("Correct! You took " + str(tries) + " tries.")
+        break
+    elif guess < target:
+        print("Too low")
+    else:
+        print("Too high")
+
+# Question 10
+def is_prime(x):
+    if x <= 1:
+        return False
+    if x <= 3:
+        return True
+    if x % 2 == 0:
+        return False
+    i = 3
+    while i * i <= x:
+        if x % i == 0:
+            return False
+        i += 2
+    return True
+
+while True:
+    num_input = input("\nEnter a number to check for prime:\n")
+    try:
+        num = int(num_input)
+    except:
+        num = 0
+    if is_prime(num):
+        print("That is a prime number:\n" + str(num))
+        break
+    else:
+        print("Not prime. Enter another number.")
