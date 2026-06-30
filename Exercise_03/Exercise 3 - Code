@@ -1,1 +1,136 @@
+# Danielle Kruger
+# Question 1
+sales_input = input("Please enter your sales:\n")
+try:
+    sales = float(sales_input)
+except:
+    sales = 0.0
+bonus = 0.0
+if sales > 5000:
+    bonus = 500.0
+print("Your bonus:\n" + str(bonus))
+print("Your sales:\n" + str(sales))
 
+# Question 2
+balance_input = input("\nPlease enter your balance:\n")
+payment_input = input("Please enter the payment amount:\n")
+try:
+    balance = float(balance_input)
+except:
+    balance = 0.0
+try:
+    payment = float(payment_input)
+except:
+    payment = 0.0
+if balance == 0:
+    print("Insufficient Funds")
+else:
+    if payment != balance:
+        print("You did not pay enough")
+
+# Question 3
+temp_input = input("\nPlease enter the temperature:\n")
+try:
+    temp = float(temp_input)
+except:
+    temp = 0.0
+if temp < 40:
+    print("A little cold, isn't it?")
+else:
+    print("Nice weather we're having.")
+
+# Question 4
+salary_input = input("\nPlease enter your salary:\n")
+try:
+    salary = float(salary_input)
+except:
+    salary = 0.0
+if salary <= 20000:
+    print("Small Salary")
+else:
+    print("Big Salary")
+
+# Question 5
+sal_input = input("\nPlease enter your Salary:\n")
+yrs_input = input("Please enter your years on job:\n")
+try:
+    sal = float(sal_input)
+except:
+    sal = 0.0
+try:
+    years = int(yrs_input)
+except:
+    years = 0
+if sal >= 30000 and years >= 2:
+    print("You qualify for a loan")
+else:
+    if sal < 30000 and years < 2:
+        print("You do not qualify: salary too low and not enough years on job")
+    elif sal < 30000:
+        print("You do not qualify: salary too low")
+    else:
+        print("You do not qualify: not enough years on job")
+
+# Question 6
+user1 = input("\nEnter the first User 1:\n")
+user2 = input("Enter the first User 2:\n")
+if user1 == user2:
+    print(user1 + " = " + user2)
+elif user1 > user2:
+    print(user1 + " > " + user2)
+else:
+    print(user1 + " < " + user2)
+
+# Question 7
+score_input = input("\nEnter your score:\n")
+try:
+    score = float(score_input)
+except:
+    score = 0.0
+if score >= 90:
+    grade = "A"
+elif score > 80:
+    grade = "B"
+elif score > 70:
+    grade = "C"
+elif score > 60:
+    grade = "D"
+else:
+    grade = "F"
+print("Your grade is " + grade)
+
+# Question 8
+age_input = input("\nPlease enter your age:\n")
+try:
+    age = int(age_input)
+except:
+    age = 0
+if age >= 4 and age <= 94:
+    print("You can play Lego")
+else:
+    print("You cannot play Lego")
+
+# Question 9
+age_in = input("\nEnter your age:\n")
+student_in = input("Are you a student? (yes/no):\n")
+try:
+    age2 = int(age_in)
+except:
+    age2 = 0
+is_student = student_in.strip().lower() == "yes"
+if is_student or age2 > 60:
+    print("You get the special")
+else:
+    print("You do not get the special")
+
+# Question 10
+num_input = input("\nPlease enter a number:\n")
+try:
+    num = int(num_input)
+except:
+    num = 0
+if num % 2 == 0:
+    print("Even Number!")
+else:
+    if not (num % 2 == 0):
+        print("Uneven Number!")
