@@ -1,0 +1,142 @@
+# Danielle Kruger
+
+# Question 1
+def q1_validate_number():
+    s = input("Enter a number:\n")
+    try:
+        n = float(s)
+    except Exception:
+        print("Error: not a valid number")
+    else:
+        print("You entered:", n)
+
+if __name__ == "__main__" and False:
+    q1_validate_number()
+
+# Question 2
+def q2_read_data_file():
+    try:
+        with open("data.txt", "r", encoding="utf-8") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: data.txt not found")
+
+if __name__ == "__main__" and False:
+    q2_read_data_file()
+
+# Question 3
+def q3_write_employees_safe():
+    names = ["John Doe", "Jane Dunning", "James Potter"]
+    try:
+        with open("Employees.txt", "w", encoding="utf-8") as f:
+            for name in names:
+                f.write(name + "\n")
+    except Exception:
+        print("Error: could not create or write to Employees.txt")
+
+if __name__ == "__main__" and False:
+    q3_write_employees_safe()
+
+# Question 4
+def q4_safe_division():
+    a = input("Enter first number:\n")
+    b = input("Enter second number:\n")
+    try:
+        x = float(a)
+        y = float(b)
+        result = x / y
+    except ValueError:
+        print("Error: invalid input")
+    except ZeroDivisionError:
+        print("Error: division by zero")
+    else:
+        print("Result:", result)
+
+if __name__ == "__main__" and False:
+    q4_safe_division()
+
+# Question 5
+def q5_save_trip_names():
+    names = []
+    for i in range(3):
+        names.append(input(f"Enter name {i+1}:\n").strip())
+    try:
+        with open("Trip.txt", "w", encoding="utf-8") as f:
+            for n in names:
+                f.write(n + "\n")
+    except Exception:
+        print("Error: could not write Trip.txt")
+
+if __name__ == "__main__" and False:
+    q5_save_trip_names()
+
+# Question 6
+def q6_read_and_sum_sales():
+    total = 0.0
+    try:
+        with open("sales.txt", "r", encoding="utf-8") as f:
+            for i in range(3):
+                line = f.readline()
+                if not line:
+                    break
+                try:
+                    total += float(line.strip())
+                except ValueError:
+                    continue
+    except FileNotFoundError:
+        print("Error: sales.txt not found")
+        return
+    print("Total:", total)
+
+if __name__ == "__main__" and False:
+    q6_read_and_sum_sales()
+
+# Question 7
+def q7_read_file_with_confirmation():
+    fname = input("Enter file name:\n").strip()
+    try:
+        with open(fname, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print("Error: file not found")
+    else:
+        print("File contents:\n", content)
+        print("Success: file read")
+        
+if __name__ == "__main__" and False:
+    q7_read_file_with_confirmation()
+
+# Question 8
+def q8_trip_contributions_with_validation():
+    entries = []
+    for i in range(3):
+        name = input(f"Enter name {i+1}:\n").strip()
+        amt = input(f"Enter contribution for {name}:\n").strip()
+        try:
+            val = float(amt)
+        except ValueError:
+            print("Invalid amount, using 0.0")
+            val = 0.0
+        entries.append((name, val))
+    try:
+        with open("Trip.txt", "w", encoding="utf-8") as f:
+            for name, val in entries:
+                f.write(f"{name},{val}\n")
+    except Exception:
+        print("Error: could not write Trip.txt")
+
+if __name__ == "__main__" and False:
+    q8_trip_contributions_with_validation()
+
+# Question 9
+def q9_read_with_final_message():
+    try:
+        with open("Employees.txt", "r", encoding="utf-8") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: Employees.txt not found")
+    finally:
+        print("Operation complete")
+
+if __name__ == "__main__" and False:
+    q9_read_with_final_message()
