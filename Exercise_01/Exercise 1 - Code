@@ -1,1 +1,84 @@
+# Danielle Kruger
+# Code 1.1 - Hello World!
 
+print("Hello World")
+
+
+# Code 1.2 - Hello, User! V1
+
+name = "Danielle"
+print(name)
+
+
+# Code 1.3 - Rectangle
+
+print("00000")
+print("00000")
+print("00000")
+print("00000")
+
+
+# Code 1.4 - Right Triangle
+
+print("*")
+print("**")
+print("***")
+print("****")
+print("*****")
+
+
+# Code 1.5 - Square
+
+char = input("Enter a character for the square: ")
+
+print(char * 4)
+print(char * 4)
+print(char * 4)
+print(char * 4)
+
+
+# Code 1.6 - Hello, User! V2
+
+user_name = input("Enter your name: ")
+
+print("Hello,", user_name + "!")
+
+
+# Code 1.7 - Addition Calculator
+
+num1 = int(input("Enter the first integer: "))
+num2 = int(input("Enter the second integer: "))
+
+sum_result = num1 + num2
+
+print("The sum is:", sum_result)
+
+
+# Code 1.8 - Area of a Rectangle
+
+width = float(input("Enter the width: "))
+height = float(input("Enter the height: "))
+
+area = width * height
+
+print("The area of the rectangle is:", area)
+
+
+# Code 1.9 - Temperature Converter
+
+fahrenheit = float(input("Enter temperature in Fahrenheit: "))
+
+celsius = (fahrenheit - 32) * 5 / 9
+
+print("Temperature in Celsius:", celsius)
+
+
+# Code 1.10 - Simple Interest Calculator
+
+principal = float(input("Enter the principal amount: "))
+rate = float(input("Enter the interest rate (%): "))
+time = float(input("Enter the time in years: "))
+
+simple_interest = (principal * rate * time) / 100
+
+print("Simple Interest =", simple_interest)
