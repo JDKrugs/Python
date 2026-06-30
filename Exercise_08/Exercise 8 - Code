@@ -1,0 +1,185 @@
+# Danielle Kruger
+
+# Question 1
+def q1_create_myfile():
+    try:
+        with open("myFile.txt", "w", encoding="utf-8") as f:
+            f.write("Hello world\n")
+    except:
+        pass
+
+if __name__ == "__main__" and False:
+    q1_create_myfile()
+
+# Question 2
+def q2_create_employees():
+    names = ["John Doe", "Jane Dunning", "James Potter"]
+    try:
+        with open("Employees.txt", "w", encoding="utf-8") as f:
+            for n in names:
+                f.write(n + "\n")
+    except:
+        pass
+
+if __name__ == "__main__" and False:
+    q2_create_employees()
+
+# Question 3
+def q3_read_employees():
+    try:
+        with open("Employees.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                print(line.strip())
+    except FileNotFoundError:
+        print("Employees.txt not found")
+
+if __name__ == "__main__" and False:
+    q3_read_employees()
+
+# Question 4
+def q4_append_employees():
+    additions = ["Hermione Granger", "Harry Potter", "Ron Weasley"]
+    try:
+        with open("Employees.txt", "a", encoding="utf-8") as f:
+            for a in additions:
+                f.write(a + "\n")
+    except:
+        print("Could not append to Employees.txt")
+
+if __name__ == "__main__" and False:
+    q4_append_employees()
+
+# Question 5
+def q5_save_trip():
+    names = []
+    for i in range(3):
+        n = input("Enter friend name {}:\n".format(i + 1))
+        names.append(n.strip())
+    try:
+        with open("Trip.txt", "w", encoding="utf-8") as f:
+            for n in names:
+                f.write(n + "\n")
+    except:
+        print("Could not write Trip.txt")
+
+def q5_read_trip():
+    try:
+        with open("Trip.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                print(line.strip())
+    except FileNotFoundError:
+        print("Trip.txt not found")
+
+if __name__ == "__main__" and False:
+    q5_save_trip()
+    q5_read_trip()
+
+# Question 6
+def q6_save_trip_with_contribution():
+    entries = []
+    for i in range(3):
+        name = input("Enter friend name {}:\n".format(i + 1)).strip()
+        contrib = input("Enter contribution for {}:\n".format(name)).strip()
+        try:
+            contrib_val = float(contrib)
+        except:
+            contrib_val = 0.0
+        entries.append((name, contrib_val))
+    try:
+        with open("TripContrib.txt", "w", encoding="utf-8") as f:
+            for name, c in entries:
+                f.write(f"{name},{c}\n")
+    except:
+        print("Could not write TripContrib.txt")
+
+def q6_read_trip_with_contribution():
+    try:
+        with open("TripContrib.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                parts = line.strip().split(",")
+                if len(parts) >= 2:
+                    name = parts[0]
+                    try:
+                        c = float(parts[1])
+                    except:
+                        c = 0.0
+                    print(name, c)
+    except FileNotFoundError:
+        print("TripContrib.txt not found")
+
+if __name__ == "__main__" and False:
+    q6_save_trip_with_contribution()
+    q6_read_trip_with_contribution()
+
+# Question 7
+def q7_save_three_numbers():
+    nums = []
+    for i in range(3):
+        v = input("Enter number {}:\n".format(i + 1)).strip()
+        try:
+            nums.append(float(v))
+        except:
+            nums.append(0.0)
+    try:
+        with open("ThreeNumbers.txt", "w", encoding="utf-8") as f:
+            for n in nums:
+                f.write(str(n) + "\n")
+    except:
+        print("Could not write ThreeNumbers.txt")
+
+def q7_read_and_sum():
+    total = 0.0
+    try:
+        with open("ThreeNumbers.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    total += float(line.strip())
+                except:
+                    pass
+        print("Total:", total)
+    except FileNotFoundError:
+        print("ThreeNumbers.txt not found")
+
+if __name__ == "__main__" and False:
+    q7_save_three_numbers()
+    q7_read_and_sum()
+
+# Question 8
+def q8_save_sales():
+    try:
+        days = int(input("How many days of sales?\n").strip())
+    except:
+        days = 0
+    sales = []
+    for i in range(days):
+        s = input("Enter sales for day {}:\n".format(i + 1)).strip()
+        try:
+            sales.append(float(s))
+        except:
+            sales.append(0.0)
+    try:
+        with open("Sales.txt", "w", encoding="utf-8") as f:
+            for s in sales:
+                f.write(str(s) + "\n")
+    except:
+        print("Could not write Sales.txt")
+
+if __name__ == "__main__" and False:
+    q8_save_sales()
+
+# Question 9
+def q9_read_and_sum_sales():
+    total = 0.0
+    try:
+        with open("Sales.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    total += float(line.strip())
+                except:
+                    pass
+        print("Total sales:", total)
+    except FileNotFoundError:
+        print("Sales.txt not found")
+
+if __name__ == "__main__" and False:
+    q9_read_and_sum_sales()
