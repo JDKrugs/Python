@@ -1,0 +1,205 @@
+# Danielle Kruger
+
+# Question 1
+def calculate_vat(price):
+    try:
+        p = float(price)
+    except:
+        p = 0.0
+    return p * 1.15
+
+def main_q1():
+    inp = input("Enter product price:\n")
+    total = calculate_vat(inp)
+    print("Total with VAT:", round(total, 2))
+
+if __name__ == "__main__":
+    main_q1()
+
+# Question 2
+def celsius_to_fahrenheit(c):
+    try:
+        c_val = float(c)
+    except:
+        c_val = 0.0
+    return (c_val * 9 / 5) + 32
+
+def main_q2():
+    c = input("Enter temperature in Celsius:\n")
+    f = celsius_to_fahrenheit(c)
+    print("Fahrenheit:", f)
+
+if __name__ == "__main__":
+    main_q2()
+
+# Question 3
+def create_email(name, surname):
+    try:
+        n = str(name).strip().lower()
+    except:
+        n = ""
+    try:
+        s = str(surname).strip().lower()
+    except:
+        s = ""
+    return n + "." + s + "@nwu.com"
+
+def main_q3():
+    name = input("Enter name:\n")
+    surname = input("Enter surname:\n")
+    print(create_email(name, surname))
+
+if __name__ == "__main__":
+    main_q3()
+
+# Question 4
+def hours_to_minutes(hours):
+    try:
+        h = float(hours)
+    except:
+        h = 0.0
+    return h * 60
+
+def main_q4():
+    hrs = input("Enter hours:\n")
+    mins = hours_to_minutes(hrs)
+    print("Minutes:", mins)
+
+if __name__ == "__main__":
+    main_q4()
+
+# Question 5
+def get_grade(mark):
+    try:
+        m = float(mark)
+    except:
+        m = 0.0
+    if m >= 75:
+        return "A"
+    elif m >= 60:
+        return "B"
+    elif m >= 50:
+        return "C"
+    else:
+        return "F"
+
+def main_q5():
+    mk = input("Enter percentage mark:\n")
+    print("Grade:", get_grade(mk))
+
+if __name__ == "__main__":
+    main_q5()
+
+# Question 6
+def average_speed(distance, time):
+    try:
+        d = float(distance)
+    except:
+        d = 0.0
+    try:
+        t = float(time)
+    except:
+        t = 1.0
+    if t == 0:
+        return 0.0
+    return d / t
+
+def main_q6():
+    dist = input("Enter distance (km):\n")
+    tim = input("Enter time (hours):\n")
+    print("Average speed (km/h):", average_speed(dist, tim))
+
+if __name__ == "__main__":
+    main_q6()
+
+# Question 7
+import math
+def area_of_circle(radius):
+    try:
+        r = float(radius)
+    except:
+        r = 0.0
+    area = math.pi * r * r
+    return round(area, 2)
+
+def main_q7():
+    r = input("Enter radius:\n")
+    print("Area:", area_of_circle(r))
+
+if __name__ == "__main__":
+    main_q7()
+
+# Question 8
+import random
+def guessing_game_once(guess, target):
+    try:
+        g = int(guess)
+    except:
+        g = -1
+    return g == target
+
+def guessing_game():
+    target = random.randint(1, 50)
+    tries = 0
+    while True:
+        guess = input("Guess a number (1-50):\n")
+        tries += 1
+        if guessing_game_once(guess, target):
+            return tries
+        else:
+            print("Wrong, try again.")
+
+def main_q8():
+    tries = guessing_game()
+    print("Correct! Tries:", tries)
+
+if __name__ == "__main__":
+    main_q8()
+
+# Question 9
+def get_max(a, b):
+    try:
+        x = float(a)
+    except:
+        x = 0.0
+    try:
+        y = float(b)
+    except:
+        y = 0.0
+    if x >= y:
+        return x
+    else:
+        return y
+
+def main_q9():
+    a = input("Enter first number:\n")
+    b = input("Enter second number:\n")
+    print("Higher number:", get_max(a, b))
+
+if __name__ == "__main__":
+    main_q9()
+
+# Question 10
+def factorial(n):
+    try:
+        k = int(n)
+    except:
+        k = 0
+    if k <= 1:
+        return 1
+    else:
+        return k * factorial(k - 1)
+
+def main_q10():
+    num = input("Enter a positive integer:\n")
+    try:
+        nval = int(num)
+    except:
+        nval = 0
+    if nval < 0:
+        print("Invalid input")
+    else:
+        print("Factorial:", factorial(nval))
+
+if __name__ == "__main__":
+    main_q10()
